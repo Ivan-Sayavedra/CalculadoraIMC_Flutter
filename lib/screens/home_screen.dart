@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial_1/widgets/botones_sexo.dart';
+import 'package:tutorial_1/widgets/slider_altura.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,8 +17,12 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[BotonesSexo()],
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: const [
+            Expanded(child: BotonesSexo()),
+            Expanded(child: SliderAltura())
+          ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

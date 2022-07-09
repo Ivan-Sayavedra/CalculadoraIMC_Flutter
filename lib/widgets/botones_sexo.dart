@@ -6,36 +6,37 @@ class BotonesSexo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Container(
-          //ignore: todo
-          //TODO: Buscar como hacer caja con bordes redondeados.
-          decoration: ),
-          child: Column(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.male_rounded),
-                color: Colors.blue,
-              ),
-              const Text(
-                'HOMBRE',
-                style: TextStyle(color: Colors.blue),
-              ),
-            ],
+      children: [
+        Expanded(
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const <Widget>[
+                Icon(Icons.male_rounded),
+                Text(
+                  'HOMBRE',
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
           ),
         ),
-        Column(
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.female_rounded),
-              color: Colors.blue,
+        Expanded(
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const <Widget>[
+                Icon(Icons.female_rounded),
+                Text(
+                  'MUJER',
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
             ),
-            const Text('MUJER', style: TextStyle(color: Colors.blue)),
-          ],
-        )
+          ),
+        ),
       ],
     );
   }
