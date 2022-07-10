@@ -1,43 +1,43 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class BotonesSexo extends StatelessWidget {
-  const BotonesSexo({Key? key}) : super(key: key);
+  String sexo;
+  BotonesSexo({Key? key, required this.sexo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.all(8.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20.0),
           child: ElevatedButton(
             onPressed: () {},
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
-                Icon(Icons.male_rounded),
+              children: [
+                Icon(
+                  definirIcono(sexo),
+                  size: 80.0,
+                ),
                 Text(
-                  'HOMBRE',
-                  style: TextStyle(color: Colors.white),
+                  sexo,
+                  style: const TextStyle(color: Colors.white),
                 )
               ],
             ),
           ),
         ),
-        Expanded(
-          child: ElevatedButton(
-            onPressed: () {},
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
-                Icon(Icons.female_rounded),
-                Text(
-                  'MUJER',
-                  style: TextStyle(color: Colors.white),
-                )
-              ],
-            ),
-          ),
-        ),
-      ],
+      ),
     );
+  }
+
+  IconData? definirIcono(String sexo) {
+    if (sexo == 'HOMBRE') {
+      return Icons.male_rounded;
+    } else {
+      return Icons.female_rounded;
+    }
   }
 }

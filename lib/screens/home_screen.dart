@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorial_1/widgets/boton_cuenta.dart';
 import 'package:tutorial_1/widgets/botones_sexo.dart';
 import 'package:tutorial_1/widgets/slider_altura.dart';
 
@@ -15,13 +16,46 @@ class HomeScreen extends StatelessWidget {
         elevation: 5,
         centerTitle: true,
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: const [
-            Expanded(child: BotonesSexo()),
-            Expanded(child: SliderAltura())
+          children: [
+            Expanded(
+                child: Row(
+              children: [
+                BotonesSexo(
+                  sexo: 'HOMBRE',
+                ),
+                BotonesSexo(
+                  sexo: 'MUJER',
+                ),
+              ],
+            )),
+            const Expanded(
+                child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: SliderAltura(),
+            )),
+            Expanded(
+              child: Row(
+                children: const [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: BotonCuenta(),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: BotonCuenta(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
