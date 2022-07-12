@@ -13,6 +13,9 @@ class BotonesSexo extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20.0),
           child: ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.blue.shade800)),
             onPressed: () {},
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

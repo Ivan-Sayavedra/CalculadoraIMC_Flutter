@@ -1,37 +1,41 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class BotonCuenta extends StatefulWidget {
-  const BotonCuenta({Key? key}) : super(key: key);
-
+  int valor;
+  String dimension;
+  BotonCuenta({Key? key, required this.valor, required this.dimension})
+      : super(key: key);
   @override
   State<BotonCuenta> createState() => _BotonCuentaState();
 }
 
 class _BotonCuentaState extends State<BotonCuenta> {
-  int peso = 60;
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.0), color: Colors.blue),
+          borderRadius: BorderRadius.circular(20.0), color: Colors.blue[800]),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            'PESO',
-            style: TextStyle(color: Colors.white),
+          Text(
+            widget.dimension,
+            style: const TextStyle(color: Colors.white),
           ),
-          const Text('63', style: TextStyle(color: Colors.white)),
+          Text('${widget.valor}',
+              style: const TextStyle(color: Colors.white, fontSize: 40.0)),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
                   onPressed: (() {
                     setState(() {
-                      peso++;
+                      widget.valor++;
                     });
                   }),
+                  iconSize: 50.0,
                   icon: const Icon(
                     Icons.remove_circle,
                     color: Colors.white,
@@ -39,13 +43,11 @@ class _BotonCuentaState extends State<BotonCuenta> {
               IconButton(
                   onPressed: (() {
                     setState(() {
-                      peso++;
+                      widget.valor++;
                     });
                   }),
-                  icon: const Icon(
-                    Icons.add_circle,
-                    color: Colors.white,
-                  )),
+                  iconSize: 50.0,
+                  icon: const Icon(Icons.add_circle, color: Colors.white)),
             ],
           ),
         ],

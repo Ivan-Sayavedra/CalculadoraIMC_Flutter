@@ -11,13 +11,17 @@ class HomeScreen extends StatelessWidget {
     // const fs30 = TextStyle(fontSize: 30);
 
     return Scaffold(
+      backgroundColor: Colors.blue[50],
       appBar: AppBar(
-        title: const Text("Calculadora IMC"),
+        title: const Text(
+          "Calculadora IMC",
+        ),
         elevation: 5,
         centerTitle: true,
+        backgroundColor: Colors.blue[900],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 60.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -40,17 +44,23 @@ class HomeScreen extends StatelessWidget {
             )),
             Expanded(
               child: Row(
-                children: const [
+                children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: BotonCuenta(),
+                      padding: const EdgeInsets.all(8.0),
+                      child: BotonCuenta(
+                        valor: 60,
+                        dimension: 'PESO',
+                      ),
                     ),
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: BotonCuenta(),
+                      padding: const EdgeInsets.all(8.0),
+                      child: BotonCuenta(
+                        valor: 25,
+                        dimension: 'EDAD',
+                      ),
                     ),
                   ),
                 ],
@@ -59,9 +69,10 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.shortcut_rounded),
+        backgroundColor: Colors.blue[900],
         onPressed: () {},
       ),
     );
