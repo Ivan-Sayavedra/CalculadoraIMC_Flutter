@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tutorial_1/providers/datos_imc.dart';
 
 // ignore: must_be_immutable
 class BotonesSexo extends StatelessWidget {
@@ -7,6 +9,8 @@ class BotonesSexo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final data = Provider.of<DatosImc>(context).datosImc;
+
     return Expanded(
       child: Container(
         padding: const EdgeInsets.all(8.0),
@@ -16,7 +20,9 @@ class BotonesSexo extends StatelessWidget {
             style: ButtonStyle(
                 backgroundColor:
                     MaterialStateProperty.all<Color>(Colors.blue.shade800)),
-            onPressed: () {},
+            onPressed: () {
+              data['sexo'] = sexo;
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

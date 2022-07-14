@@ -32,7 +32,7 @@ class _BotonCuentaState extends State<BotonCuenta> {
               IconButton(
                   onPressed: (() {
                     setState(() {
-                      widget.valor++;
+                      widget.valor--;
                     });
                   }),
                   iconSize: 50.0,

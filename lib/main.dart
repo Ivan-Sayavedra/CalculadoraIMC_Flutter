@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tutorial_1/providers/datos_imc.dart';
 import 'package:tutorial_1/screens/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => DatosImc())],
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

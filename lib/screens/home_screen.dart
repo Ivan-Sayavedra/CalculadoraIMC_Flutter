@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tutorial_1/widgets/boton_cuenta.dart';
 import 'package:tutorial_1/widgets/botones_sexo.dart';
 import 'package:tutorial_1/widgets/slider_altura.dart';
+
+import '../providers/datos_imc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,6 +12,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // const fs30 = TextStyle(fontSize: 30);
+    final data = Provider.of<DatosImc>(context).datosImc;
 
     return Scaffold(
       backgroundColor: Colors.blue[50],
@@ -37,6 +41,17 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             )),
+            SizedBox(
+                height: 30.0,
+                child: Center(
+                  child: Text(
+                    'Seleccionado: ${data['sexo']}',
+                    style: TextStyle(
+                        color: Colors.blue[900],
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0),
+                  ),
+                )),
             const Expanded(
                 child: Padding(
               padding: EdgeInsets.all(8.0),
