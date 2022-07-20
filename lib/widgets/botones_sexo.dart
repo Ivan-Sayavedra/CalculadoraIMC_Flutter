@@ -9,7 +9,7 @@ class BotonesSexo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = Provider.of<DatosImc>(context).datosImc;
+    final datosImc = Provider.of<DatosImc>(context);
 
     return Expanded(
       child: Container(
@@ -21,7 +21,7 @@ class BotonesSexo extends StatelessWidget {
                 backgroundColor:
                     MaterialStateProperty.all<Color>(Colors.blue.shade800)),
             onPressed: () {
-              data['sexo'] = sexo;
+              datosImc.sexo = sexo;
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

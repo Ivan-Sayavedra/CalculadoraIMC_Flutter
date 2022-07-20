@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tutorial_1/providers/datos_imc.dart';
-import 'package:tutorial_1/screens/home_screen.dart';
+// import 'package:tutorial_1/screens/home_screen.dart';
+import 'package:tutorial_1/screens/inicio.dart';
 
 void main() {
-  runApp(MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => DatosImc())],
-      child: const MyApp()));
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_) => DatosImc()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,7 +15,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: HomeScreen());
+    return const MaterialApp(debugShowCheckedModeBanner: false, home: Inicio());
   }
 }

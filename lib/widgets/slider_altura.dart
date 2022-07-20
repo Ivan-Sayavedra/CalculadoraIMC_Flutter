@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tutorial_1/providers/datos_imc.dart';
 
-class SliderAltura extends StatefulWidget {
+class SliderAltura extends StatelessWidget {
   const SliderAltura({Key? key}) : super(key: key);
 
   @override
-  State<SliderAltura> createState() => _SliderAlturaState();
-}
-
-class _SliderAlturaState extends State<SliderAltura> {
-  double altura = 160;
-  @override
   Widget build(BuildContext context) {
+    final datosImc = Provider.of<DatosImc>(context);
     return Container(
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
@@ -30,7 +27,7 @@ class _SliderAlturaState extends State<SliderAltura> {
                 width: 50.0,
               ),
               Text(
-                '${altura.round()}',
+                '${datosImc.altura.round()}',
                 style: const TextStyle(color: Colors.white, fontSize: 36.0),
               ),
               const SizedBox(
@@ -43,15 +40,13 @@ class _SliderAlturaState extends State<SliderAltura> {
             ],
           ),
           Slider(
-            value: altura,
+            value: datosImc.altura,
             min: 100,
             max: 200,
             activeColor: Colors.white,
             inactiveColor: Colors.white24,
             onChanged: (double newAltura) {
-              setState(() {
-                altura = newAltura;
-              });
+              datosImc.altura = newAltura;
             },
           )
         ],
