@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tutorial_1/providers/datos_imc.dart';
-import 'package:tutorial_1/screens/inicio.dart';
+import 'package:calculadora_imc/providers/datos_imc.dart';
 
 class Resultado extends StatelessWidget {
   const Resultado({Key? key}) : super(key: key);
@@ -20,40 +19,49 @@ class Resultado extends StatelessWidget {
           elevation: 5,
           centerTitle: true,
           backgroundColor: Colors.blue[900]),
-      body: Center(
+      body: Container(
+          padding: const EdgeInsets.all(40.0),
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // const TablaIMC(),
-          Text(
-            'Resultado:',
-            style: TextStyle(color: Colors.blue[900], fontSize: 24),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            '$valor',
-            style: TextStyle(
-                color: Colors.blue[900],
-                fontSize: 24,
-                fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(
-            height: 40,
-          ),
-          Text(
-            'Clasificación:',
-            style: TextStyle(color: Colors.blue[900], fontSize: 24),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            clasificacion,
-            style: TextStyle(
-                color: Colors.blue[900],
-                fontSize: 24,
-                fontWeight: FontWeight.bold),
-          ),
-        ],
-      )),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // const TablaIMC(),
+              Text(
+                'Resultado:',
+                style: TextStyle(color: Colors.blue[900], fontSize: 24),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                '$valor',
+                style: TextStyle(
+                    color: Colors.blue[900],
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Text(
+                'Clasificación:',
+                style: TextStyle(color: Colors.blue[900], fontSize: 24),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                clasificacion,
+                style: TextStyle(
+                    color: Colors.blue[900],
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 80.0,
+              ),
+              Text(
+                'ATENCIÓN:  No tome esta clasificación como diagnóstico. Consulte a su médico para una correcta evaluación.',
+                style: TextStyle(color: Colors.blue[900], fontSize: 12.0),
+                textAlign: TextAlign.center,
+              )
+            ],
+          )),
       // floatingActionButton: FloatingActionButton(
       //   child: const Icon(Icons.keyboard_return_rounded),
       //   backgroundColor: Colors.blue[900],

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tutorial_1/screens/resultado.dart';
-import 'package:tutorial_1/widgets/boton_cuenta.dart';
-import 'package:tutorial_1/widgets/botones_sexo.dart';
-import 'package:tutorial_1/widgets/slider_altura.dart';
+import 'package:calculadora_imc/screens/resultado.dart';
+import 'package:calculadora_imc/widgets/boton_cuenta.dart';
+import 'package:calculadora_imc/widgets/botones_sexo.dart';
+import 'package:calculadora_imc/widgets/slider_altura.dart';
 
 import '../providers/datos_imc.dart';
 
@@ -91,7 +91,7 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.shortcut_rounded),
+        child: const Icon(Icons.play_arrow_rounded),
         backgroundColor: Colors.blue[900],
         onPressed: () {
           Navigator.push(

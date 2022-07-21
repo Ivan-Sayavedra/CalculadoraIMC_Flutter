@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tutorial_1/providers/datos_imc.dart';
+import 'package:calculadora_imc/providers/datos_imc.dart';
 
 // ignore: must_be_immutable
 class BotonCuenta extends StatelessWidget {

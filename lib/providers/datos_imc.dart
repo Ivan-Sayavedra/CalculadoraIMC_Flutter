@@ -35,37 +35,64 @@ class DatosImc with ChangeNotifier {
     notifyListeners();
   }
 
-  List clasificarEdad() {
-    List _ref = [];
+  // List clasificarEdad() {
+  //   List _ref = [];
+  //   if (19 < _edad && _edad <= 24) {
+  //     _ref = [19, 24];
+  //   } else if (25 <= _edad && _edad <= 34) {
+  //     _ref = [20, 25];
+  //   } else if (35 <= _edad && _edad <= 44) {
+  //     _ref = [21, 26];
+  //   } else if (45 <= _edad && _edad <= 54) {
+  //     _ref = [22, 27];
+  //   } else if (55 <= _edad && _edad <= 64) {
+  //     _ref = [23, 28];
+  //   } else if (_edad <= 65) {
+  //     _ref = [24, 29];
+  //   }
+  //   return _ref;
+  // }
+
+  int clasificarEdad() {
+    int posicion = 0;
     if (19 < _edad && _edad <= 24) {
-      _ref = [19, 24];
+      posicion = 0;
     } else if (25 <= _edad && _edad <= 34) {
-      _ref = [20, 25];
+      posicion = 1;
     } else if (35 <= _edad && _edad <= 44) {
-      _ref = [21, 26];
+      posicion = 2;
     } else if (45 <= _edad && _edad <= 54) {
-      _ref = [22, 27];
+      posicion = 3;
     } else if (55 <= _edad && _edad <= 64) {
-      _ref = [23, 28];
+      posicion = 4;
     } else if (_edad <= 65) {
-      _ref = [24, 29];
+      posicion = 5;
     }
+    return posicion;
+  }
+
+  List clasificar() {
+    int posicion = clasificarEdad();
+    List _ref = [
+      clasificacion['bajo']?[posicion],
+      clasificacion['normal']?[posicion],
+      clasificacion['sobrepeso']?[posicion],
+    ];
     return _ref;
   }
 
   Map calcularImc() {
     Map resultado = {'valor': 0.0, 'clasificacion': 'Indefinida'};
-    // String categoria = 'No definida';
     double alturaEnMetros = _altura / 100;
     _imc = _peso / (alturaEnMetros * alturaEnMetros);
     resultado['valor'] = _imc;
-    List referencia = clasificarEdad();
+    List referencia = clasificar();
     if (_imc < referencia[0]) {
-      resultado['clasificacion'] = 'Peso inferior al normal';
+      resultado['clasificacion'] = 'Bajo peso';
     } else if (_imc < referencia[1]) {
       resultado['clasificacion'] = 'Normal';
-    } else if (_imc < 30) {
-      resultado['clasificacion'] = 'Peso superior al normal';
+    } else if (_imc < referencia[2]) {
+      resultado['clasificacion'] = 'Sobrepeso';
     } else {
       resultado['clasificacion'] = 'Obesidad';
     }
@@ -75,3 +102,9 @@ class DatosImc with ChangeNotifier {
 
   double get imc => _imc;
 }
+
+Map<String, List<double>> clasificacion = {
+  'bajo': [19, 20, 21, 22, 23, 24],
+  'normal': [24, 25, 26, 27, 28, 29],
+  'sobrepeso': [29, 29.5, 30, 30.5, 31, 31.5],
+};

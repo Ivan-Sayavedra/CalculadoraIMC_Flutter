@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tutorial_1/providers/datos_imc.dart';
-// import 'package:tutorial_1/screens/home_screen.dart';
-import 'package:tutorial_1/screens/inicio.dart';
+import 'package:calculadora_imc/providers/datos_imc.dart';
+// import 'package:calculadora_imc/screens/home_screen.dart';
+import 'package:calculadora_imc/screens/inicio.dart';
 
 void main() {
   runApp(MultiProvider(providers: [
