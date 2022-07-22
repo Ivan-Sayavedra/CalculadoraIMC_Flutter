@@ -55,7 +55,7 @@ class DatosImc with ChangeNotifier {
 
   int clasificarEdad() {
     int posicion = 0;
-    if (19 < _edad && _edad <= 24) {
+    if (_edad <= 24) {
       posicion = 0;
     } else if (25 <= _edad && _edad <= 34) {
       posicion = 1;
